@@ -24,6 +24,10 @@ export class BookService {
         return book
     }
 
+    async findAll() {
+        return this.prisma.book.findMany();
+    }
+
     async delete(data: string) {
         const barCodeExists = await this.prisma.book.findUnique({
             where: {
@@ -41,5 +45,6 @@ export class BookService {
             }
         })
     }
+
 
 }
